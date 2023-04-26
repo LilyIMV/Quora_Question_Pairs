@@ -57,8 +57,8 @@ def get_mistakes(clf, X_q1q2, y):
         return incorrect_indices, predictions
     
 
-def print_mistake_k(k, mistake_indices, predictions):
-    print(train_df.iloc[mistake_indices[k]].question1)
-    print(train_df.iloc[mistake_indices[k]].question2)
-    print("true class:", train_df.iloc[mistake_indices[k]].is_duplicate)
-    print("prediction:", predictions[mistake_indices[k]])
+#def print_mistake_k(k, mistake_indices, predictions):
+#    print(train_df.iloc[mistake_indices[k]].question1)
+#    print(train_df.iloc[mistake_indices[k]].question2)
+#    print("true class:", train_df.iloc[mistake_indices[k]].is_duplicate)
+#    print("prediction:", predictions[mistake_indices[k]])
