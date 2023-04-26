@@ -39,30 +39,3 @@ def deserialize_list_from_file(filename):
     with open(filename, 'rb') as file:
         deserialized_list = pickle.load(file)
     return deserialized_list
-
-from typing import List
-from sentence_transformers import SentenceTransformer
-from sklearn.metrics.pairwise import cosine_similarity
-
-# Load the pre-trained BERT model
-modelBERT = SentenceTransformer("paraphrase-MiniLM-L6-v2")
-
-def bert_similarity(questions_1: List[str], questions_2: List[str]) -> List[float]:
-    """
-    Calculate similarity scores between two lists of questions using BERT.
-
-    Args:
-        questions_1: List of questions 1.
-        questions_2: List of questions 2.
-
-    Returns:
-        A list of similarity scores between each pair of questions.
-    """
-    # Generate embeddings for the questions
-    embeddings_1 = modelBERT.encode(questions_1)
-    embeddings_2 = modelBERT.encode(questions_2)
-
-    # Calculate the cosine similarity between question pairs
-    similarity_scores = cosine_similarity(embeddings_1, embeddings_2).diagonal()
-
-    return similarity_scores
